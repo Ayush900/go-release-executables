@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:latest
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   curl \
   wget \
@@ -8,7 +8,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && DEBIAN_FRONTEND=noninteract
   jq \
   ca-certificates \
   bash
-  
+
 ADD main.sh /main.sh
 ADD build.sh /build.sh
 RUN ["chmod", "+x", "/main.sh"]
