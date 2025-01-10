@@ -31,6 +31,14 @@ tar cvfz ${TMP_ARCHIVE} ${CKSUM_FILE} --directory ${PROJECT_ROOT}/${SUBDIR} ${EX
 
 NAME="${NAME:-${EXECUTABLE_FILES}_${RELEASE_TAG_NAME}}_${GOOS}_${GOARCH}"
 
+echo "The values passed to the curl commands are : "
+echo "value of TMP_ARCHIVE : $TMP_ARCHIVE"
+echo "value of GITHUB_TOKEN : $GITHUB_TOKEN"
+echo "value of RELEASE_UPLOAD_URL : $RELEASE_UPLOAD_URL"
+echo "value of NAME : $NAME"
+echo "value of TMP_ARCHIVE : $TMP_ARCHIVE"
+
+
 curl \
   --tlsv1.2 \
   -X POST \
