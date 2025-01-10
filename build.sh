@@ -6,6 +6,9 @@ export GO_HOME=/usr/local/go
 export GOPATH=/go
 export PATH=${GOPATH}/bin:${GO_HOME}/bin/:$PATH
 
+echo "The github repo is : $GITHUB_REPOSITORY"
+echo "The basename is : $basename"
+
 PROJECT_ROOT="/go/src/github.com/${GITHUB_REPOSITORY}"
 PROJECT_NAME=$(basename $GITHUB_REPOSITORY)
 
