@@ -21,7 +21,10 @@ RELEASE_TAG_NAME=$(echo $THIS_GITHUB_EVENT | jq -r .release.tag_name)
 PROJECT_NAME=$(basename $GITHUB_REPOSITORY)
 
 EXECUTABLE_FILES=`/build.sh`
+
+echo "The executable files recieved are : $EXECUTABLE_FILES"
 EXECUTABLE_FILES=`echo "${EXECUTABLE_FILES}" | awk '{$1=$1};1'`
+echo "The executable files NOW are : $EXECUTABLE_FILES"
 
 PROJECT_ROOT="/go/src/github.com/${GITHUB_REPOSITORY}"
 TMP_ARCHIVE=tmp.tgz
