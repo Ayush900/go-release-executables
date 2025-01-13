@@ -29,7 +29,19 @@ echo "The executable files NOW are : $EXECUTABLE_FILES"
 PROJECT_ROOT="/go/src/github.com/${GITHUB_REPOSITORY}"
 TMP_ARCHIVE=tmp.tgz
 CKSUM_FILE=md5sum.txt
+
+echo "The PROJECT_ROOT is : $PROJECT_ROOT"
+echo "The SUBDIR is : $SUBDIR"
+echo "The EXECUTABLE_FILES is : $EXECUTABLE_FILES"
+echo "The CKSUM_FILE is : $CKSUM_FILE"
+
 md5sum ${PROJECT_ROOT}/${SUBDIR}/${EXECUTABLE_FILES} | cut -d ' ' -f 1 > ${CKSUM_FILE}
+
+echo "The TMP_ARCHIVE is : $TMP_ARCHIVE"
+echo "The CKSUM_FILE is : $CKSUM_FILE"
+echo "The PROJECT_ROOT is : $PROJECT_ROOT"
+echo "The SUBDIR is : $SUBDIR"
+
 tar cvfz ${TMP_ARCHIVE} ${CKSUM_FILE} --directory ${PROJECT_ROOT}/${SUBDIR} ${EXECUTABLE_FILES} 
 
 NAME="${NAME:-${EXECUTABLE_FILES}_${RELEASE_TAG_NAME}}_${GOOS}_${GOARCH}"
