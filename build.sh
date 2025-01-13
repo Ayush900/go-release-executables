@@ -6,14 +6,14 @@ export GO_HOME=/usr/local/go
 export GOPATH=/go
 export PATH=${GOPATH}/bin:${GO_HOME}/bin/:$PATH
 
-echo "Inside this build.sh"
+# echo "Inside this build.sh"
 
 PROJECT_ROOT="/go/src/github.com/${GITHUB_REPOSITORY}"
 PROJECT_NAME=$(basename $GITHUB_REPOSITORY)
 
-echo "The project root is : $PROJECT_ROOT"
-echo "The project name is : $PROJECT_NAME"
-echo "The github workspace is : $GITHUB_WORKSPACE"
+# echo "The project root is : $PROJECT_ROOT"
+# echo "The project name is : $PROJECT_NAME"
+# echo "The github workspace is : $GITHUB_WORKSPACE"
 
 
 
@@ -22,13 +22,13 @@ rmdir $PROJECT_ROOT
 # without above, following symlink creation fails (?)
 ln -s $GITHUB_WORKSPACE $PROJECT_ROOT
 cd $PROJECT_ROOT/${SUBDIR}
-echo "+++++++++++"
-ls
-echo "+++++++++++"
+# echo "+++++++++++"
+# ls
+# echo "+++++++++++"
 go get -v ./...
-echo "------------"
-ls
-echo "------------"
+# echo "------------"
+# ls
+# echo "------------"
 
 
 EXT=''
@@ -50,5 +50,5 @@ else
   COMPILED_FILES="${OUTFILE}"
 fi
 
-echo "The compiled files are = "
+# echo "The compiled files are = "
 echo ${COMPILED_FILES}
